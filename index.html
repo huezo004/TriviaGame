@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <title>Trivia Game</title>
+     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+     <script src="https://code.jquery.com/jquery.js"></script>
+</head>
+<body background="assets/images/geometric.jpg">
+ <div id="main" >
+
+  <form>
+  <p id="time"> Time remaining </p>
+  <div>
+  <h1>What was the name of Jasmine's tiger? ?</h1>
+	<input type="radio" name="question1" value="correct"  id="1a">Rajah 
+	<input type="radio" name="question1" value="uncorrect" id="1b">Abbu 
+    <input type="radio" name="question1" value="uncorrect" id="1c">Ashki 
+    <input type="radio" name="question1" value="uncorrect" id="1d">Natasha 
+    </div>
+  <div>
+  <h1>What was the name of the evil witch of little mermaid ?</h1>
+	<input type="radio" name="question2" value="correct"  id="2a">Ursula
+	<input type="radio" name="question2" value="uncorrect" id="2b">Queen Latifah
+    <input type="radio" name="question2" value="uncorrect" id="2c">Jaffar
+    <input type="radio" name="question2" value="uncorrect" id="2d">Denyse
+    </div>
+  <div>
+  <h1>What was the name of Aladdin's pet ?</h1>
+	<input type="radio" name="question3" value="correct"  id="3a">Abbu
+	<input type="radio" name="question3" value="uncorrect" id="3b">Ashki
+    <input type="radio" name="question3" value="uncorrect" id="3c">Jaffar
+    <input type="radio" name="question3" value="uncorrect" id="3d">Natasha
+    </div>
+  <div>
+   <h1>What was the name of the talking tree in Pocahontas?</h1>
+	<input type="radio" name="question4" value="correct"   id="4a">Grandmother Willow
+	<input type="radio" name="question4" value="uncorrect" id="4b">Oak 
+    <input type="radio" name="question4" value="uncorrect" id="4c">Ashki
+    <input type="radio" name="question4" value="uncorrect" id="4d">John Smith
+    </div>
+	<br><br>
+	<input type=submit id="done">
+</form>
+</div>
+
+<script>
+
+// Add in js file 
+// long string 
+
+var correctAnwsers=0; 
+var incorrectAnswers=0; 
+var unanswered=0; 
+var total=4; 
+var counter = 20;
+
+var newYearCountdown = setInterval(function(){
+
+  $("#time").html("Time remaining : " + counter); 
+    counter--; 
+  if(counter===0){
+  	var final= "All Done!\n Correct Answers: 0"+"\nIncorrect Answers: 4\n" + "Unanswered: 4"; 
+  	$("#main").html(final); 
+  	clearInterval(newYearCountdown); 
+  }
+}, 2000);
+
+ 
+ function submit(){
+
+var final= "All Done!\n" +"correct Answers:"+ correctAnwsers +"\nIncorrect Answers: "+ incorrectAnswers +
+	"Unanswered:" + total; 
+
+    $("#main").html(final); 
+    clearInterval(newYearCountdown); 
+ 	}
+
+ function display() {
+	if( this.value ==="correct"){
+		correctAnwsers++; 
+		total--; 
+	}
+	else{
+		incorrectAnswers++; 
+		total--; 
+	}
+}
+	$("#done").click(submit); 
+    $("#1a").click(display); 
+    $("#1b").click(display); 
+    $("#1c").click(display); 
+    $("#1d").click(display); 
+
+    $("#2a").click(display); 
+    $("#2b").click(display); 
+    $("#2c").click(display); 
+    $("#2d").click(display); 
+    
+    $("#3a").click(display); 
+    $("#3b").click(display); 
+    $("#3c").click(display); 
+    $("#3d").click(display); 
+
+    $("#4a").click(display); 
+    $("#4b").click(display); 
+    $("#4c").click(display); 
+    $("#4d").click(display); 
+
+</script>
+
+</body>
+</html>
